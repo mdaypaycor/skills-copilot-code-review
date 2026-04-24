@@ -6,6 +6,8 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- View active school announcements
+- Manage announcements (signed-in users only)
 
 ## Getting Started
 
@@ -31,6 +33,10 @@ A super simple FastAPI application that allows students to view and sign up for 
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| GET    | `/announcements?active_only=true`                                | Get active announcements                                            |
+| POST   | `/announcements?teacher_username=<username>`                     | Create announcement (requires sign-in)                             |
+| PUT    | `/announcements/{announcement_id}?teacher_username=<username>`   | Update announcement (requires sign-in)                             |
+| DELETE | `/announcements/{announcement_id}?teacher_username=<username>`   | Delete announcement (requires sign-in)                             |
 
 ## Data Model
 
@@ -47,4 +53,11 @@ The application uses a simple data model with meaningful identifiers:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+3. **Announcements** - Uses generated MongoDB ObjectId as identifier:
+   - Title
+   - Message
+   - Optional start datetime (`starts_at`)
+   - Required expiration datetime (`expires_at`)
+   - Created/updated timestamps
+
+All data is stored in MongoDB.
