@@ -501,6 +501,20 @@ button {
   border-radius: 14px;
 }
 
+.close-announcement-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  color: var(--text-secondary);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-announcement-modal:hover,
+.close-announcement-modal:focus {
+  color: var(--text-primary);
+}
 .announcement-form {
   background: #f9fbff;
   border: 1px solid #dbe5ff;
