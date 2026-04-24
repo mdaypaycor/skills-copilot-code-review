@@ -823,23 +823,10 @@ footer {
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
-
-@media (max-width: 767px) {
-  #user-controls {
-    position: static;
-    margin-top: 10px;
-  }
-
-  #user-status {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .announcement-date-row {
-    grid-template-columns: 1fr;
-  }
-
-  .announcement-admin-item {
-    flex-direction: column;
-  }
+.announcement-banner {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
 }
